@@ -1,1 +1,17 @@
-<p>header works!</p>
+<div class="header__logo">
+  <span class="header__logo__icon"><app-logo></app-logo></span>
+</div>
+<div class="header__navigation">
+  <nav class="header__nav">
+    <ul class="header__nav__list">
+      <li class="header__nav__list__item" routerLink="/catalog/1" routerLinkActive="header__nav__list__item--active" [routerLinkActiveOptions]="{exact: true}">Каталог</li>
+      <li class="header__nav__list__item" routerLink="/selection" routerLinkActive="header__nav__list__item--active" [routerLinkActiveOptions]="{exact: true}">Подборки</li>
+      <li class="header__nav__list__item" routerLink="/coming-soon" routerLinkActive="header__nav__list__item--active" [routerLinkActiveOptions]="{exact: true}">Скоро на kinostorm</li>
+      <li class="header__nav__list__item" routerLink="" routerLinkActive="header__nav__list__item--active" [routerLinkActiveOptions]="{exact: true}">Мой список</li>
+    </ul>
+  </nav>
+</div>
+<div class="header__search">
+  <img class="header__search__icon" src="assets/images/search.svg" alt="Search icon">
+  <img class="header__search__profile__icon" src="assets/images/profile.svg" alt="Profile icon">
+</div>

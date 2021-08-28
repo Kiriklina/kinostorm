@@ -1,4 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: Arimo;
+  font-style: normal;
+  font-weight: 400;
+  src: url("assets/fonts/Arimo-Regular.woff2")
+      format("woff2"),
+    url("assets/fonts/Arimo-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: Arimo;
+  font-style: normal;
+  font-weight: 700;
+  src: url("assets/fonts/Arimo-Bold.woff2") format("woff2"),
+    url("assets/fonts/Arimo-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 400;
+  src: url("assets/fonts/Ubuntu-Regular.woff2")
+      format("woff2"),
+    url("assets/fonts/Ubuntu-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 700;
+  src: url("assets/fonts/Ubuntu-Bold.woff2") format("woff2"),
+    url("assets/fonts/Ubuntu-Bold.woff") format("woff");
+}
+
 body{
   margin: 0;
   background-color: #000;

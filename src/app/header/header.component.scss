@@ -1,8 +1,88 @@
 :host{
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: #161617;
   height: 70px;
-  p {
-    color: white;
+
+  .header{
+    &__logo{
+      margin: 0 auto;
+
+      &__icon{
+        height: 19px;
+        width: 117px;
+      }
+    }
+
+    &__navigation{
+      margin: 0 auto;
+    }
+
+    &__nav__list{
+      display: flex;
+      align-self: center;
+      justify-content: space-between;
+      list-style: none;
+
+      &__item:not(:last-child){
+        margin-right: 53px;
+      }
+
+      &__item{
+        padding-right: 7px;
+        padding-left: 7px;
+        position: relative;
+        transition: all 0.6s;
+        font-family: 'Arimo', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 13px;
+        line-height: 30px;
+        letter-spacing: 0.02em;
+        color: #D6D2CF;
+        user-select: none;
+        cursor: pointer;
+        &--active{
+          color: #28A396;
+          border-bottom: 1px solid #28A396;
+        }
+        &:hover{
+          color: #28A396;
+        }
+        &:before{
+          content: "";
+          width: 0;
+          height: 1px;
+          position: absolute;
+          top: 100%;
+          bottom: 0;
+          left: 50%;
+          transition: all 0.3s;
+        }
+        &:hover:before{
+          width: 100%;
+          left: 0;
+          background: #28A396;
+        }
+      }
+    }
+
+    &__search{
+      margin: 0 auto;
+
+      &__icon{
+        width: 19px;
+        height: 19px;
+        margin-right: 47px;
+        cursor: pointer;
+      }
+
+      &__profile__icon{
+        width: 21px;
+        height: 20px;
+        cursor: pointer;
+      }
+    }
   }
 }

@@ -1,0 +1,46 @@
+<div class="watch-list__title">
+  <h1 class="watch-list__title__name">Буду смотреть</h1>
+  <button (click)="displayMenu = !displayMenu"><img src="assets/images/settings.svg" class="watch-list__settings__icon"
+      alt="Settings icon"></button>
+</div>
+<div class="watch-list__settings__menu" *ngIf="displayMenu">
+  <ul>
+    <li *ngFor="let item of menuList" class="watch-list__settings__menu__option" [class.watch-list__settings__menu__option--active]="item.id===currentMovieOption"
+    (click)="switchMovieOption(item.id)">
+        <div class="watch-list__settings__menu__icon-container">
+          <img src="assets/images/checkmark.svg" class="watch-list__settings__menu__icon" alt="Check mark icon"
+            *ngIf="item.id===currentMovieOption">
+        </div>
+        <div class="watch-list__settings__menu__name">
+        {{item.name}}
+        </div>
+    </li>
+  </ul>
+</div>
+<div class="watch-list__list">
+  <div class="watch-list__list__delete-container">
+    <button class="watch-list__list__delete-btn" *ngIf="displayDeleteBtn" (click)="deleteSelected()"><img
+        class="watch-list__list__delete-btn__icon" src="assets/images/delete.svg" alt="Delete icon">
+      удалить выбранное
+    </button>
+  </div>
+  <ul>
+    <li class="watch-list__list__item" *ngFor="let movie of currentMovieList">
+      <app-checkbox [(ngModel)]="movie.checked"></app-checkbox>
+      <div class="watch-list__list__block">
+        <a [routerLink]="'/catalog/' + movie.id" class="watch-list__list__name">
+          {{movie.name}}
+        </a>
+        <div>
+          <span class="watch-list__list__date">{{movie.date | date:'yyyy-MM-dd'}}</span>
+          <button class="watch-list__list__watched-btn" [class.watch-list__list__watched-btn--active]="movie.watched"
+            (click)="switchWatched(movie)"><img class="watch-list__list__watched-btn__icon"
+              src="assets/images/watched.svg" alt="Watched icon"></button>
+          <button class="watch-list__list__rate-btn"><img class="watch-list__list__rate-btn__icon"
+              src="assets/images/rating-star.svg" alt="Rating icon">
+            Оценить</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
