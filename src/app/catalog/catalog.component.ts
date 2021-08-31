@@ -43,7 +43,7 @@ interface CharacterInfo{
 @Component({
   selector: 'app-catalog',
   templateUrl: './catalog.component.html',
-  styleUrls: ['./catalog.component.scss']
+  styleUrls: ['./catalog.component.scss', './catalog-part2.component.scss']
 })
 export class CatalogComponent implements OnInit {
   public movieId: number;
