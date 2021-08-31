@@ -64,7 +64,7 @@ export class CatalogComponent implements OnInit {
       this.movieInfo = movie;
       this.releaseDate = this.movieInfo.release_date.split('-')[0];
       this.episodeRoman = convertNumberToRoman(this.movieInfo.episode_id);
-      this.randomBanner = 'url(../../assets/images/' + this.bannerList[Math.round(Math.random() * (this.bannerList.length - 1))] + '.jpg)';
+      this.randomBanner = 'url(assets/images/' + this.bannerList[Math.round(Math.random() * (this.bannerList.length - 1))] + '.jpg)';
 
       forkJoin(movie.characters.slice(0, 6).map( url =>  this.http.get(url))).subscribe((characters: CharacterInfo[]) => {
         this.characterInfo = characters;
