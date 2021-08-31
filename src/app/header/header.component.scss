@@ -78,11 +78,62 @@
         cursor: pointer;
       }
 
-      &__profile__icon{
+      &__profile{
+        &__icon{
         width: 21px;
         height: 20px;
         cursor: pointer;
+        }
+
+        &__menu{
+          display: none;
+          width: 245px;
+          height: 275px;
+          position: absolute;
+          z-index: 1;
+          right: 50%;
+          border-radius: 10%;
+          background-color: #191E23;
+          box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.5);
+
+          ul{
+            margin: 0;
+            padding-left: 0;
+            padding-top: 16px;
+            list-style: none;
+
+            li:hover{
+              background-color: #23292E;
+            }
+          }
+
+          &__option{
+            padding: 11px 0 11px 30px;
+            font-family: 'Arimo', sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 24px;
+            color: #D6D2CF;
+            background-color: transparent;
+          }
+
+          &__option:nth-child(1){
+            margin-top: 5px;
+          }
+        }
       }
+
+      &__dropdown{
+        position: relative;
+        display: inline-block;
+      }
+
     }
   }
+
+  .header__search__dropdown:hover .header__search__profile__menu{
+    display: block;
+  }
+
 }

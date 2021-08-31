@@ -1,3 +1,79 @@
-<p>
-  {{movieId}}
-</p>
+<div class="catalog__hero">
+  <div class="catalog__hero__container">
+    <div class="catalog__hero__banner" [style.background-image]="randomBanner">
+    </div>
+    <div class="catalog__hero__content">
+      <div class="catalog__hero__content__left">
+        <h1 class="catalog__hero__title">Star Wars. Episode {{episodeRoman}}: {{movieInfo?.title}}
+        </h1>
+        <button class="catalog__hero__watch-btn">
+          Cмотреть от 99 Р
+        </button>
+        <p class="catalog__hero__small-title">Star Wars. Episode {{episodeRoman}}: {{movieInfo?.title}}
+        </p>
+        <p class="catalog__hero__small-title">{{releaseDate}}, США, 2:30
+        </p>
+        <div class="catalog__hero__genre-block">
+          <span class="catalog__hero__genre">Фантастика</span>
+          <span class="catalog__hero__genre">Боевик</span>
+          <span class="catalog__hero__genre">Фэнтази</span>
+          <span class="catalog__hero__genre">Приключения</span>
+        </div>
+      </div>
+      <div class="catalog__hero__content__right">
+        <p class="catalog__hero__rating">8.1</p>
+        <p class="catalog__hero__rating-service">IMDb</p>
+        <div class="catalog__hero__btn-block">
+          <button class="catalog__hero__save-btn"><img src="assets/images/save.svg"
+              class="catalog__hero__save-btn__icon" alt="Save movie icon"></button>
+          <button class="catalog__hero__watched-btn"><img src="assets/images/watched.svg"
+              class="catalog__hero__watched-btn__icon" alt="Watched icon"></button>
+          <button class="catalog__hero__rate-btn"><img class="catalog__hero__rate-btn__icon"
+              src="assets/images/rating-star.svg" alt="Rating icon">
+            Оценить</button>
+        </div>
+        <div class="catalog__hero__stars">
+          <img src="assets/images/rating-yellow-star.svg" class="catalog__hero__yellow-star" alt="Rating star icon">
+          <img src="assets/images/rating-yellow-star.svg" class="catalog__hero__yellow-star" alt="Rating star icon">
+          <img src="assets/images/rating-yellow-star.svg" class="catalog__hero__yellow-star" alt="Rating star icon">
+          <img src="assets/images/rating-yellow-star.svg" class="catalog__hero__yellow-star" alt="Rating star icon">
+          <img src="assets/images/rating-grey-star.svg" class="catalog__hero__grey-star" alt="Rating star icon">
+        </div>
+        <div>
+          <span class="catalog__hero__age-quality">12+</span>
+          <span class="catalog__hero__age-quality">Full HD</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="catalog__about-movie">
+  <div class="catalog__about">
+    <h2 class="catalog__title">О фильме</h2>
+    <p class="catalog__about__description">{{movieInfo?.opening_crawl}}</p>
+  </div>
+  <div class="catalog__trailer">
+    <h2 class="catalog__title">Трейлер</h2>
+    <div class="catalog__trailer-block">
+      <img class="catalog__about__trailer" src="assets/images/trailer.jpg" alt="Trailer">
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="catalog__trailer-link"></a>
+    </div>
+  </div>
+</div>
+
+<div class="catalog__characters">
+  <div class="catalog__characters__content">
+    <h2 class="catalog__title">Персонажи</h2>
+    <div class="catalog__characters-block">
+      <div class="catalog__character">
+        <div class="catalog__character__content" *ngFor="let character of characterInfo">
+          <img class="catalog__character__avatar" [src]="'assets/images/' + character.name.toLowerCase().split(' ').join('') + '.jpg'" onerror="this.src='assets/images/kitty.jpg'" alt="Character">
+          <p class="catalog__character__name">{{character.name}}</p>
+        </div>
+      </div>
+      <div class="catalog__character__more">
+        <button class="catalog__character__more-btn">+Ещё</button>
+      </div>
+    </div>
+  </div>
+</div>

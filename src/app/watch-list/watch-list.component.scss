@@ -15,7 +15,6 @@
         font-family: 'Arimo', sans-serif;
         font-style: normal;
         font-weight: bold;
-        font-size: 38px;
         line-height: 48px;
         letter-spacing: 0.02em;
         color: #fff;
@@ -26,21 +25,26 @@
         background-color: transparent;
         cursor: pointer;
       }
+    }
 
-      &__settings__icon{
-        width: 20px;
-        height: 20px;
-      }
+    &__dropdown{
+      position: relative;
+      display: inline-block;
+    }
+
+
+    &__settings__icon{
+      width: 20px;
+      height: 20px;
     }
 
     &__settings__menu{
+      display: none;
       width: 238px;
       height: 170px;
       position: absolute;
       z-index: 1;
-      top: 16.5%;
-      left: 60%;
-      bottom: 0;
+      right: 50%;
       border-radius: 10%;
       background-color: #191E23;
       box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.5);
@@ -90,6 +94,7 @@
       padding: 0 90px 0 107px;
 
       &__delete-container{
+        margin-top: 20px;
         height: 34px;
       }
 
@@ -211,6 +216,10 @@
       }
 
     }
+  }
+
+  .watch-list__dropdown:hover .watch-list__settings__menu{
+    display: block;
   }
 
 }

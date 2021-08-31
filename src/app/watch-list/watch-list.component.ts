@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { convertNumberToRoman } from'src/functions/convert-to-roman';
+import { generateRandomDate } from'src/functions/random-date';
 
 interface MovieListItem{
   id: number;
@@ -7,6 +9,7 @@ interface MovieListItem{
   date: Date;
   watched: boolean;
   checked: boolean;
+  url: number;
 }
 
 interface MovieListFromServer {
@@ -42,8 +45,6 @@ interface MovieFromServer {
 export class WatchListComponent implements OnInit {
   public movieList: MovieListItem[];
 
-  public displayMenu:boolean=false;
-
   public menuList = [
     {
       id: 1,
@@ -77,7 +78,7 @@ export class WatchListComponent implements OnInit {
   }
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   public ngOnInit(): void {
     this.getMovies();
@@ -95,36 +96,18 @@ export class WatchListComponent implements OnInit {
     this.movieList = this.movieList.filter(movie => !movie.checked);
   }
 
-  private generateRandomDate(start, end): Date{
-    start = start.getTime();
-    end = end.getTime();
-    let date = new Date(start + Math.random() * (end - start));
-    return date;
-  }
-
   private getMovies(): void {
     this.http.get('https://swapi.py4e.com/api/films').subscribe((movies: MovieListFromServer) => {
       this.movieList = movies.results.map((item: MovieFromServer) => {
         return {
           id: item.episode_id,
-          name: 'Star Wars. Episode ' + this.convertNumberToRoman(item.episode_id) + '. ' + item.title,
-          date: this.generateRandomDate(this.from, this.to),
+          name: 'Star Wars. Episode ' + convertNumberToRoman(item.episode_id) + '. ' + item.title,
+          date: generateRandomDate(this.from, this.to),
           watched: false,
           checked: false,
+          url: +item.url.split('/')[item.url.split('/').length - 2],
         };
       });
     });
-  }
-
-  private convertNumberToRoman(value: number): string {
-    const lookup = {M:1000,CM:900,D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1};
-    let roman = '';
-    for ( let i in lookup ) {
-      while ( value >= lookup[i] ) {
-        roman += i;
-        value -= lookup[i];
-      }
-    }
-    return roman;
   }
 }

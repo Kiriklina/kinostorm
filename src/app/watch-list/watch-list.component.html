@@ -1,21 +1,24 @@
 <div class="watch-list__title">
   <h1 class="watch-list__title__name">Буду смотреть</h1>
-  <button (click)="displayMenu = !displayMenu"><img src="assets/images/settings.svg" class="watch-list__settings__icon"
-      alt="Settings icon"></button>
-</div>
-<div class="watch-list__settings__menu" *ngIf="displayMenu">
-  <ul>
-    <li *ngFor="let item of menuList" class="watch-list__settings__menu__option" [class.watch-list__settings__menu__option--active]="item.id===currentMovieOption"
-    (click)="switchMovieOption(item.id)">
-        <div class="watch-list__settings__menu__icon-container">
-          <img src="assets/images/checkmark.svg" class="watch-list__settings__menu__icon" alt="Check mark icon"
-            *ngIf="item.id===currentMovieOption">
-        </div>
-        <div class="watch-list__settings__menu__name">
-        {{item.name}}
-        </div>
-    </li>
-  </ul>
+  <div class="watch-list__dropdown">
+    <button><img src="assets/images/settings.svg"
+        class="watch-list__settings__icon" alt="Settings icon"></button>
+    <div class="watch-list__settings__menu">
+      <ul>
+        <li *ngFor="let item of menuList" class="watch-list__settings__menu__option"
+          [class.watch-list__settings__menu__option--active]="item.id===currentMovieOption"
+          (click)="switchMovieOption(item.id)">
+          <div class="watch-list__settings__menu__icon-container">
+            <img src="assets/images/checkmark.svg" class="watch-list__settings__menu__icon" alt="Check mark icon"
+              *ngIf="item.id===currentMovieOption">
+          </div>
+          <div class="watch-list__settings__menu__name">
+            {{item.name}}
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 <div class="watch-list__list">
   <div class="watch-list__list__delete-container">
@@ -28,7 +31,7 @@
     <li class="watch-list__list__item" *ngFor="let movie of currentMovieList">
       <app-checkbox [(ngModel)]="movie.checked"></app-checkbox>
       <div class="watch-list__list__block">
-        <a [routerLink]="'/catalog/' + movie.id" class="watch-list__list__name">
+        <a [routerLink]="'/catalog/' + movie.url" class="watch-list__list__name">
           {{movie.name}}
         </a>
         <div>

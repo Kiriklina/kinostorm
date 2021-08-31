@@ -11,6 +11,10 @@ const routes: Routes = [
     component: WatchListComponent,
   },
   {
+    path: 'catalog',
+    component: CatalogComponent,
+  },
+  {
     path: 'catalog/:movieId',
     component: CatalogComponent,
   },

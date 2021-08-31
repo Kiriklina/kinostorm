@@ -1,6 +1,351 @@
+$imgKey: random(6);
+
+$list: darth-wader, leia-organa, rebel, merlin, fake-leia, padme;
+$nth: nth($list, $imgKey);
+
 :host{
   display: flex;
   flex-direction: column;
   background-color: #191E23;
   flex: 1;
+
+  .catalog{
+
+    &__hero{
+      position: relative;
+
+      &__banner{
+        height: 440px;
+        z-index: 0;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: transparent;
+        background-size: cover;
+      }
+
+      &__banner:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        background: transparent;
+        background-image: linear-gradient(to top, #191E23, transparent);
+      }
+
+      &__content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        top: 43%;
+        z-index: 10;
+        padding: 0 91px;
+
+        &__left{
+          flex: 1 1 59%;
+          display: flex;
+          flex-direction: column;
+          margin-right: 200px;
+        }
+
+        &__right{
+          flex: 1 1 calc(41% - 140px);
+          display: flex;
+          flex-direction: column;
+          text-align: right;
+        }
+      }
+
+      &__title{
+        margin-bottom: 10px;
+        font-family: 'Arimo', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        line-height: 48px;
+        letter-spacing: 0.02em;
+        color: #FFF;
+      }
+
+      &__watch-btn{
+        margin-bottom: 13px;
+        width: 340px;
+        height: 50px;
+        background-color: #28A396;
+        border: none;
+        font-family: 'Arimo', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        color: #FFF;
+        text-transform: uppercase;
+      }
+
+
+      &__small-title{
+        font-family: 'Arimo', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 20px;
+        color: #CFCAC7;
+      }
+
+      &__genre-block{
+        margin-top: 30px;
+      }
+
+      &__genre{
+        padding: 9px 10px;
+        font-family: 'Ubuntu', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        color: #CFCAC7;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 3px;
+      }
+
+      &__genre:not(:last-child){
+        margin-right: 10px;
+      }
+
+      &__rating{
+        font-family: "Ubuntu";
+        font-style: normal;
+        font-weight: bold;
+        font-size: 34px;
+        color: #D6D2CF;
+      }
+
+      &__rating-service{
+        font-family: "Ubuntu";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        color: #D6D2CF;
+      }
+
+      &__btn-block{
+        display: flex;
+        align-items: center;
+        margin-top: 38px;
+      }
+
+      &__save-btn{
+        display: inline;
+        border: none;
+        margin-right: 14px;
+        background-color: #23292E;
+        padding: 8px 11px 6px;
+        border-radius: 5px;
+        user-select: none;
+        cursor: pointer;
+
+        &__icon{
+          width: 14px;
+          height: 18px;
+        }
+      }
+
+      &__save-btn:hover,
+      &__save-btn:focus{
+        background-color: #28A396;
+      }
+
+      &__watched-btn{
+        display: inline;
+        border: none;
+        margin-right: 14px;
+        background-color: #23292E;
+        padding: 9px 10px;
+        border-radius: 5px;
+        user-select: none;
+        cursor: pointer;
+
+        &__icon{
+          width: 18px;
+          height: 14px;
+        }
+      }
+
+      &__watched-btn:hover,
+      &__watched-btn--active{
+        background-color: #28A396;
+      }
+
+      &__rate-btn{
+        display: inline;
+        border: none;
+        padding: 9px 9px 10px;
+        background-color: #23292E;
+        border-radius: 5px;
+        color: #FFF;
+        font-family: 'Arimo', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 16px;
+        user-select: none;
+        cursor: pointer;
+
+        &__icon{
+          width: 11px;
+          height: 10px;
+          margin-right: 7px;
+        }
+      }
+
+      &__rate-btn:hover,
+      &__rate-btn:focus{
+        background-color: #28A396;
+      }
+
+      &__stars{
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+
+      &__yellow-star{
+        width: 11px;
+        height: 10px;
+        margin-right: 9px;
+      }
+
+      &__grey-star{
+        width: 11px;
+        height: 10px;
+      }
+
+      &__age-quality{
+        font-family: 'Arimo', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        color: #CFCAC7;
+      }
+
+      &__age-quality:not(:last-child){
+        margin-right: 24px;
+      }
+    }
+
+    &__about-movie{
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-top: 70px;
+      padding: 0 91px;
+    }
+
+    &__about{
+      flex: 1 1 calc(60% - 26px);
+      margin-right: 26px;
+
+      &__description{
+        font-family: 'Arimo', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 24px;
+        color: #D6D2CF;
+      }
+    }
+
+    &__trailer-block{
+      flex: 1 1 calc(40% - 26px);
+      position: relative;
+    }
+
+    &__trailer-link{
+      position: absolute;
+      top: 35%;
+      bottom: 0;
+      right: 0;
+      left: 40%;
+      width: 60px;
+      height: 58px;
+      background: url("../../assets/images/play.svg") center center no-repeat transparent;
+      background-size: contain;
+    }
+
+    &__title{
+      margin-bottom: 36px;
+      font-family: 'Arimo', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      text-transform: uppercase;
+      color: #8FD4C0;
+    }
+
+    &__characters{
+      background-color: #23292E;
+      margin-top: 50px;
+
+      &__content{
+        margin: 30px 91px;
+      }
+    }
+
+    &__characters-block{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    &__character{
+      flex: 1 1 90%;
+      display: flex;
+      flex-wrap: wrap;
+
+      &__content{
+        display: flex;
+        align-items: center;
+        flex: 1 1 150px;
+        margin-bottom: 30px;
+        margin-right: 60px;
+      }
+
+      &__avatar{
+        width: 70px;
+        height: 70px;
+        border-radius: 3px;
+        margin-right: 20px;
+      }
+
+      &__name{
+        font-family: 'Arimo', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 20px;
+        color: #D6D2CF;
+      }
+
+      &__more{
+        flex: 1 1 calc(10% - 115px);
+      }
+
+      &__more-btn{
+        width: 70px;
+        height: 70px;
+        background-color: #383E43;
+        border: none;
+        border-radius: 3px;
+        font-family: 'Ubuntu', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 30px;
+        color: #CFCAC7;
+        cursor: pointer;
+        transition: .15s ease-in-out;
+      }
+
+      &__more-btn:hover{
+        background-color: #4c5055;
+      }
+    }
+  }
 }
